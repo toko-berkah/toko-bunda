@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toko Berkah — Bantu Ibu Bangun Usaha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b241f;
+    --cloth:#f6efe4;
+    --indigo:#233f4d;
+    --indigo-deep:#152a34;
+    --gold:#c98a2e;
+    --thread:#a8493c;
+    --card:#ffffff;
+    --line: rgba(43,36,31,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cloth);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background: linear-gradient(180deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+    color:#f6efe4;
+    padding: 56px 20px 72px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:36px;
+    background:var(--cloth);
+    clip-path: polygon(0 100%, 3% 40%, 6% 100%, 9% 45%, 12% 100%, 15% 42%, 18% 100%, 21% 44%, 24% 100%, 27% 40%, 30% 100%, 33% 45%, 36% 100%, 39% 42%, 42% 100%, 45% 44%, 48% 100%, 51% 40%, 54% 100%, 57% 45%, 60% 100%, 63% 42%, 66% 100%, 69% 44%, 72% 100%, 75% 40%, 78% 100%, 81% 45%, 84% 100%, 87% 42%, 90% 100%, 93% 44%, 96% 100%, 100% 40%, 100% 100%);
+  }
+  .hero-inner{ max-width: 720px; margin: 0 auto; }
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:12px;
+    color: #d9b878;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size: clamp(32px, 6vw, 46px);
+    margin:0 0 16px;
+    line-height:1.08;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:#d9b878;
+  }
+  .hero p{
+    font-size:16px;
+    max-width:52ch;
+    color: #dfe4e2;
+    margin: 0 0 28px;
+  }
+  .progress-wrap{
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:14px;
+    padding:18px 20px;
+    max-width: 420px;
+  }
+  .progress-labels{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#cfd8d6;
+    margin-bottom:8px;
+  }
+  .progress-labels strong{ color:#f6efe4; font-size:15px; }
+  .bar{
+    height:8px;
+    border-radius:6px;
+    background: rgba(255,255,255,0.15);
+    overflow:hidden;
+  }
+  .bar-fill{
+    height:100%;
+    width:34%;
+    background: linear-gradient(90deg, var(--gold), #e6c375);
+    border-radius:6px;
+  }
+
+  /* ---------- Section shell ---------- */
+  section.wrap{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 8px 20px 0;
+  }
+  .section-head{
+    margin: 44px 0 22px;
+  }
+  .section-head .eyebrow{ color: var(--thread); }
+  .section-head h2{ font-size: 24px; margin:0 0 8px; color:var(--indigo-deep); }
+  .section-head p{ margin:0; color:#5c534a; font-size:15px; max-width:56ch; }
+
+  /* ---------- Product grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:16px;
+    padding-bottom: 8px;
+  }
+  @media (max-width:520px){
+    .grid{ grid-template-columns: 1fr 1fr; gap:12px; }
+  }
+  .card{
+    background:var(--card);
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+  }
+  .card .photo{
+    aspect-ratio: 4/5;
+    width:100%;
+    object-fit:cover;
+    display:block;
+    background:#eee;
+  }
+  .card .body{
+    padding: 12px 12px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    flex:1;
+  }
+  .tag{
+    display:inline-block;
+    font-size:10.5px;
+    font-weight:600;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:3px 8px;
+    border-radius:20px;
+    width:fit-content;
+  }
+  .tag.real{ background:#e4ede9; color:#26543f; }
+  .tag.illus{ background:#f3e6d8; color:#8a5a1f; }
+  .card h3{
+    font-size:15px;
+    margin:2px 0 0;
+    font-weight:600;
+    font-family:'Work Sans', sans-serif;
+    line-height:1.3;
+  }
+  .price{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color: var(--thread);
+    font-size:17px;
+    margin: 2px 0 0;
+  }
+  .cond{
+    font-size:12.5px;
+    color:#6b6259;
+    margin:0;
+    line-height:1.4;
+  }
+  .buy{
+    margin-top:auto;
+    text-decoration:none;
+    background: var(--indigo);
+    color:#f6efe4;
+    text-align:center;
+    padding:9px 10px;
+    border-radius:9px;
+    font-size:13px;
+    font-weight:600;
+    display:block;
+  }
+  .buy:hover{ background: var(--indigo-deep); }
+
+  /* ---------- Trust / footer note ---------- */
+  .note{
+    margin: 40px 0;
+    background: #fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:18px 20px;
+    font-size:13.5px;
+    color:#5c534a;
+  }
+  .note strong{ color:var(--indigo-deep); }
+
+  footer{
+    text-align:center;
+    padding: 40px 20px 60px;
+    color:#7a7166;
+    font-size:13px;
+  }
+  footer .amin{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color: var(--indigo);
+    font-size:16px;
+    display:block;
+    margin-bottom:8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Toko Berkah</div>
+    <h1>Barang <em>preloved</em>,<br>untuk usaha yang baru dimulai.</h1>
+    <p>Barang-barang ini titipan seorang ibu janda yang sedang berjuang membangun usaha untuk anaknya. Setiap yang terjual, hasilnya langsung untuk beliau.</p>
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span>Terkumpul dari penjualan</span>
+        <strong>menyusul</strong>
+      </div>
+      <div class="bar"><div class="bar-fill"></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap">
+
+  <div class="section-head">
+    <div class="eyebrow">Foto asli barang</div>
+    <h2>Sudah dicek kondisinya</h2>
+    <p>Dua barang ini difoto langsung oleh pemiliknya — apa yang terlihat adalah kondisi sebenarnya.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <img class="photo" src="images/stroller.jpg" alt="Stroller kembar Baby Elle Trevi">
+      <div class="body">
+        <span class="tag real">Foto asli</span>
+        <h3>Baby Elle Trevi — Stroller Kembar</h3>
+        <p class="cond">Minus pemakaian saja, masih layak jalan.</p>
+        <p class="price">Rp500.000 <span style="font-size:12px;color:#8a8074;font-weight:500;">nego</span></p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Stroller%20Kembar%20Baby%20Elle%20Trevi%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/tablet.jpg" alt="Huawei MatePad SE 10.7 inch">
+      <div class="body">
+        <span class="tag real">Foto asli</span>
+        <h3>Huawei MatePad SE 10,7"</h3>
+        <p class="cond">Minus pakai, lancar jaya. Box lengkap.</p>
+        <p class="price">Rp1.350.000 <span style="font-size:12px;color:#8a8074;font-weight:500;">nego</span></p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Huawei%20MatePad%20SE%2010%2C7%22%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <div class="eyebrow">Gamis &amp; kerudung</div>
+    <h2>Koleksi busana</h2>
+    <p>Foto di bawah ini adalah foto ilustrasi (bukan foto barang asli). Kondisi barang sebenarnya sekitar 80–90%.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <img class="photo" src="images/gamis-navy.jpg" alt="Gamis dan kerudung navy">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Gamis + Kerudung Navy (satu paket)</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp95.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Gamis%20%2B%20Kerudung%20Navy%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/gamis-pink.jpg" alt="Gamis pink bordir">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Gamis Pink Bordir</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp95.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Gamis%20Pink%20Bordir%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/kerudung-hijau.jpg" alt="Kerudung hijau army">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Kerudung Hijau Army</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp40.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Kerudung%20Hijau%20Army%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/kerudung-coklat-muda.jpg" alt="Kerudung coklat muda">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Kerudung Coklat Muda</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp40.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Kerudung%20Coklat%20Muda%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/kerudung-coklat.jpg" alt="Kerudung coklat bertudung">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Kerudung Coklat Bertudung</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp40.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Kerudung%20Coklat%20Bertudung%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/gamis-hitam-kerah.jpg" alt="Gamis hitam kerah shanghai">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Gamis Hitam Kerah</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp50.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Gamis%20Hitam%20Kerah%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img class="photo" src="images/gamis-hitam-marun.jpg" alt="Gamis hitam marun bertingkat">
+      <div class="body">
+        <span class="tag illus">Foto ilustrasi</span>
+        <h3>Gamis Hitam Marun Bertingkat</h3>
+        <p class="cond">Kondisi asli sekitar 80–90%.</p>
+        <p class="price">Rp50.000</p>
+        <a class="buy" href="https://wa.me/6208211043809?text=Assalamu%27alaikum%2C%20saya%20berminat%20dengan%20Gamis%20Hitam%20Marun%20Bertingkat%20di%20Toko%20Berkah" target="_blank" rel="noopener">Chat untuk beli</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Kenapa ada dua jenis foto?</strong> Barang elektronik dan stroller difoto langsung oleh pemiliknya, jadi kondisinya persis seperti di foto. Untuk gamis dan kerudung, foto yang ditampilkan adalah ilustrasi warna &amp; model — kondisi fisik asli sekitar 80–90%, silakan tanya detail lebih lanjut lewat WhatsApp sebelum membeli.
+  </div>
+
+</section>
+
+<footer>
+  <span class="amin">Barakallahu fiikum</span>
+  Toko Berkah — hasil penjualan disalurkan langsung untuk modal usaha ibu penitip barang.
+</footer>
+
+</body>
+</html>
